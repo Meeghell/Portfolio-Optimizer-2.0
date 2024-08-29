@@ -29,6 +29,8 @@ def pre_cleanup():
         os.remove("symbols.json")
     if os.path.isfile("pk_filenames.json"):
         os.remove("pk_filenames.json")
+    if os.path.isfile("parms.json"):
+        os.remove("parms.json")
 
 #function to allow entry of another stock symbol    
 def add_symbol():
@@ -42,6 +44,12 @@ def handle_form_submission():
     #store the symbols in a file, to pass to jupyter notebooks
     with open('symbols.json','w') as f:
         json.dump(entered_symbols,f)
+    # if user wants to see sentiment details, set parm
+    if sentiment:
+        sentiment_parm = '{"sentiment":"True"}'
+        sentiment_parm_dict = json.loads(sentiment_parm)
+        with open('parms.json','w') as f:
+            json.dump(sentiment_parm_dict,f)
     #invoke the controller notebook
     with st.spinner(text="Please wait - gathering and processing data"):
         execute_notebook('controller.ipynb')
@@ -87,6 +95,8 @@ with st.form(key='portfolio_form'):
      st.subheader("Portfolio Optimizer 2.0")
      st.write("Enter desired stock symbols (at least 2, up to 10):")
      col1, col2, col3, col4 = st.columns(4)
+     with col4:
+         sentiment = st.checkbox("Sentiment?")
      for i in range(st.session_state.num_fields):
          with col1:
             st.session_state.symbols[i] = st.text_input(f'Stock Symbol {i+1}',value=st.session_state.symbols[i], key=f'symbol_{i}').upper()
