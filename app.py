@@ -90,13 +90,18 @@ def display_results():
 initialize()
 pre_cleanup()
 
+logo_path = 'logo.png'
+
 # create form    
 with st.form(key='portfolio_form'):
-     st.subheader("Portfolio Optimizer 2.0")
+     col1, col2 = st.columns([1, 3])
+     with col1:
+         st.image(logo_path,width=100)
+     with col2:
+         st.subheader("Portfolio Optimizer 2.0")
      st.write("Enter desired stock symbols (at least 2, up to 10):")
+     sentiment = st.checkbox("Include Sentiment?",value=True)
      col1, col2, col3, col4 = st.columns(4)
-     with col4:
-         sentiment = st.checkbox("Sentiment?")
      for i in range(st.session_state.num_fields):
          with col1:
             st.session_state.symbols[i] = st.text_input(f'Stock Symbol {i+1}',value=st.session_state.symbols[i], key=f'symbol_{i}').upper()
