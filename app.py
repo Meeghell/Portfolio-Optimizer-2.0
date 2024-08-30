@@ -3,6 +3,7 @@ import json
 import nbformat
 from nbconvert.preprocessors import ExecutePreprocessor
 import os
+import shutil
 import glob
 #python imaging library, to display PNG files
 from PIL import Image
@@ -17,13 +18,18 @@ def initialize():
 # Delete files from previous run
 def pre_cleanup():
     # clean up existing image files
-    files = glob.glob('/images/*')
+    files = glob.glob('images/*')
     for f in files:
         os.remove(f)
     # clean up existing data files
-    files = glob.glob('/data/*')
+    files = glob.glob('data/*')
     for f in files:
         os.remove(f)
+    # files = glob.glob('lstm_tuning*')
+    # for f in files:
+    #     os.remove(f)
+    if os.path.isdir('lstm_tuning'):
+        shutil.rmtree('lstm_tuning')
     # clean up symbols and pickle filenames files:
     if os.path.isfile("symbols.json"):
         os.remove("symbols.json")
