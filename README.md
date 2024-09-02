@@ -109,3 +109,11 @@ The system generates:
 - The portfolio optimization aims to maximize the Sharpe ratio.
 - Sentiment analysis is optional and can be toggled by the user.
 
+## Visualizations
+
+!(Optimized Portfolio Weights)[https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/01_OptimizedPortfolioWeights.png]
+!(Optimized Efficient Frontier)[https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/05_OptimizedEfficientFrontier.png]
+!(Covariance Matrix)[https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/02_CovarianceMatrix.png]
+!(Return, Volatility, Sharpe) [https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/06_sharpevolret_info.png]
+!(Bitcoin Sentiment Analysis)[https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/07_BTC-USD_SentimentVisual.png]
+!(Tesla Sentiment Analysis)[https://github.com/Meeghell/Portfolio-Optimizer-2.0/blob/main/images/07_TSLA_SentimentVisual.png]
