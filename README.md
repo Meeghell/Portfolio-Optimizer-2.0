@@ -1,6 +1,7 @@
 # Portfolio Optimizer 2.0
 
-This project implements a stock portfolio optimization system using LSTM (Long Short-Term Memory) neural networks, sentiment analysis, and the Efficient Frontier algorithm. The system fetches historical stock data, predicts future returns using LSTM models, analyzes market sentiment, and then optimizes the portfolio allocation based on these inputs.
+This project implements a stock portfolio optimization system using LSTM (Long Short-Term Memory) neural networks, sentiment analysis, and the Efficient Frontier algorithm. The system fetches historical stock data, predicts future returns using LSTM models, analyzes market sentiment, and then optimizes the portfolio allocation based on these inputs. Adds sentiment analysis to the output via Alpha Vantage.
+
 
 ## Project Structure
 
@@ -65,7 +66,7 @@ The project consists of several components:
 ### Data Retrieval(`Data_Retrieval.ipynb`)
 
 - Fetches historical stock data for specified symbols
-- Saves data as pickle files for further processing
+- Saves cleaned data as pickle files for further processing
 
 ### LSTM Model(`LSTM_model.ipynb`)
 
@@ -97,9 +98,9 @@ The system generates:
 	- Expected annual return
 	- Annual volatility
 	- Sharpe Ratio of the optimized portfolio
-    - Covarience matrix
-    - Effecient Frontier plots
-    - Sentiment analysis (optional)
+	- Covarience matrix
+	- Effecient Frontier plots
+	- Sentiment analysis (optional)
 
 ## Notes
 
